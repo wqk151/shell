@@ -1,0 +1,14 @@
+- hosts: '{{group_name}}'
+  remote_user: root
+
+  tasks:
+  - name: copy common_functions.sh file
+    copy: src=/data/sh/common_functions.sh dest=/data/sh/common_functions.sh
+  - name: copy md5sum_file to remote
+    copy: src=/data/sh/md5sum_file dest=/data/sh/md5sum_file
+  - name: copy hostslist to remote
+    copy: src=/tmp/hostslist dest=/data/sh/
+  - name: copy keyfiletest to remote
+    copy: src=/data/sh/keyfiletest dest=/data/sh/
+  - name: copy app install script to remote
+    template: src=/data/sh/{{ app_script }} dest=/data/sh/

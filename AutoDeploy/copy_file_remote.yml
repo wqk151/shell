@@ -1,0 +1,12 @@
+- hosts: '{{group_name}}'
+  remote_user: root
+
+  tasks:
+  - name: mkdir 
+    shell: mkdir -p /data/{apps,workspace,sh,tools,update_package}
+  - name: copy nmon to remote
+    copy: src=/sbin/nmon dest=/sbin/nmon
+  - name: copy pwaiwang to remote
+    copy: src=/sbin/pwaiwang dest=/sbin/pwaiwang
+  - name: copy ftp.sh to remote
+    copy: src=/bin/ftp.sh dest=/bin/ftp.sh
